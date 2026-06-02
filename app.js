@@ -210,7 +210,7 @@
   [els.search, els.category, els.location, els.linkedin, els.sort].forEach(el => el.addEventListener('input', render));
   window.addEventListener('hashchange', navigateToHash);
   els.modal.addEventListener('click', (e) => { if (e.target === els.modal) closeModal(); });
-  els.modalClose.addEventListener('click', closeModal);
+  if (els.modalClose) els.modalClose.addEventListener('click', closeModal);
 
   // Init with top chips and route.
   render();
