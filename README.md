@@ -28,3 +28,4 @@ Web estática para publicar en GitHub Pages.
 
 ## Nota
 El contenido procede del historial del grupo y algunas fichas son inferencias basadas en mensajes y presentaciones del chat. Revisa antes de publicar en abierto.
+Última actualización.
