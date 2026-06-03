@@ -30,6 +30,14 @@
     'Universidad': '<svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>',
   };
 
+  function lastNameKey(name) {
+    const parts = name.trim().split(/\s+/);
+    if (parts.length <= 1) return name;
+    // If first part is an initial (e.g. "J."), sort by last word
+    if (/^[A-ZÁÉÍÓÚ]\.$/.test(parts[0])) return parts[parts.length - 1];
+    return parts.slice(1).join(' ');
+  }
+
   function esc(v) {
     return String(v ?? '').replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
   }
@@ -70,7 +78,7 @@
       return true;
     });
     const sort = els.sort.value;
-    if (sort === 'name') out.sort((a,b) => a.name.localeCompare(b.name, 'es'));
+    if (sort === 'name') out.sort((a,b) => lastNameKey(a.name).localeCompare(lastNameKey(b.name), 'es'));
     if (sort === 'group') out.sort((a,b) => a.group.localeCompare(b.group, 'es') || a.name.localeCompare(b.name, 'es'));
     if (sort === 'organization') out.sort((a,b) => a.organization.localeCompare(b.organization, 'es') || a.name.localeCompare(b.name, 'es'));
     return out;
