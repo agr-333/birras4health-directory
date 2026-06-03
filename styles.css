@@ -225,6 +225,18 @@ a{color:inherit;text-decoration:none}
   align-items:center;
   margin-top:14px;
 }
+.card-foot-right{display:flex;align-items:center;gap:6px}
+.li-link{
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid var(--border);
+  background:transparent;
+  display:grid;place-items:center;
+  color:var(--muted);
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+  flex:0 0 auto;
+}
+.li-link svg{width:13px;height:13px;display:block}
+.li-link:hover{background:#0a66c2;border-color:#0a66c2;color:#fff;text-decoration:none}
 .badge{
   display:inline-flex;align-items:center;
   padding:4px 10px;border-radius:var(--pill);

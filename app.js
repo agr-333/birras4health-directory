@@ -114,9 +114,12 @@
           </div>
           <div class="card-foot">
             <span class="badge ${badgeClass(p.group)}">${esc(p.group)}</span>
-            <button class="arrow-btn" aria-label="Ver ficha">
-              <svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
-            </button>
+            <div class="card-foot-right">
+              ${p.linkedin ? `<a class="li-link" href="${esc(p.linkedin)}" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>` : ''}
+              <button class="arrow-btn" aria-label="Ver ficha">
+                <svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
+              </button>
+            </div>
           </div>
           <div class="card-detail">
             <div class="card-detail-inner">
