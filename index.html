@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Birras4Health · Directorio</title>
+  <meta name="description" content="Directorio de la comunidad Birras4Health — talento, ciencia y tecnología en salud.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">B4H</div>
+        <span class="brand-name">Birras4Health</span>
+      </div>
+      <div class="top-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="Buscar">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="search-bar" id="searchBar">
+      <div class="search-inner">
+        <input id="searchInput" class="search-input" placeholder="Buscar por nombre, empresa, rol, área, ubicación…" autocomplete="off" />
+      </div>
+    </div>
+
+    <section class="hero">
+      <h2>Directorio del ecosistema<br>salud e innovación</h2>
+      <p>Conecta talento, ciencia y tecnología para transformar la salud.</p>
+      <div class="filters" id="filterButtons"></div>
+    </section>
+
+    <div class="meta-row">
+      <div class="count-label" id="count">— miembros</div>
+      <div class="sort-wrap">
+        <span class="sort-label">Ordenar por</span>
+        <select id="sort" class="sort-select">
+          <option value="name">Nombre A-Z</option>
+          <option value="group">Categoría</option>
+          <option value="organization">Organización</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="cards" class="cards"></div>
+
+    <footer class="footer">
+      Birras4Health · Directorio de la comunidad · 57 miembros
+    </footer>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
