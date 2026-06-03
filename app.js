@@ -54,10 +54,15 @@
     return palettes[n % palettes.length];
   }
 
-  function linkedinPhotoUrl(linkedin) {
-    if (!linkedin) return null;
-    const m = linkedin.match(/linkedin\.com\/in\/([^/?#]+)/);
-    return m ? `https://unavatar.io/linkedin/${m[1]}` : null;
+  function photoUrl(p) {
+    // 1. Manual photo URL stored in data (highest priority)
+    if (p.photo) return p.photo;
+    // 2. LinkedIn → unavatar.io with fallback=false so onerror fires when no photo found
+    if (p.linkedin) {
+      const m = p.linkedin.match(/linkedin\.com\/in\/([^/?#]+)/);
+      if (m) return `https://unavatar.io/linkedin/${m[1]}?fallback=false`;
+    }
+    return null;
   }
 
   function activeGroup() {
@@ -97,11 +102,11 @@
     }
 
     els.cards.innerHTML = list.map(p => {
-      const photoUrl = linkedinPhotoUrl(p.linkedin);
+      const url = photoUrl(p);
       const ini = esc(initials(p.name));
       const bg = avatarBg(p.name);
-      const imgHtml = photoUrl
-        ? `<img src="${esc(photoUrl)}" alt="${esc(p.name)}" loading="lazy" onerror="this.remove()">`
+      const imgHtml = url
+        ? `<img src="${esc(url)}" alt="${esc(p.name)}" loading="lazy" onerror="this.remove()">`
         : '';
       const isExpanded = p.slug === expandedSlug;
 
