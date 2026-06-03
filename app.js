@@ -4,8 +4,6 @@
   const $ = id => document.getElementById(id);
   const els = {
     searchInput: $('searchInput'),
-    searchBar: $('searchBar'),
-    searchBtn: $('searchBtn'),
     sort: $('sort'),
     count: $('count'),
     cards: $('cards'),
@@ -195,12 +193,6 @@
       expandedSlug = null;
       render();
     });
-  });
-
-  // Search toggle
-  els.searchBtn.addEventListener('click', () => {
-    const isOpen = els.searchBar.classList.toggle('open');
-    if (isOpen) { setTimeout(() => els.searchInput.focus(), 50); }
   });
 
   els.searchInput.addEventListener('input', () => { expandedSlug = null; render(); });
