@@ -56,6 +56,18 @@ a{color:inherit;text-decoration:none}
 }
 .icon-btn:hover{box-shadow:var(--shadow-sm);background:#f9f9f9}
 .icon-btn svg{display:block;width:16px;height:16px;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.whatsapp-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:9px 16px;
+  border-radius:var(--pill);
+  background:#25d366;color:#fff;
+  font-size:13.5px;font-weight:600;
+  letter-spacing:-.02em;
+  text-decoration:none;
+  transition:background .15s ease, box-shadow .15s ease, transform .12s ease;
+  box-shadow:var(--shadow-sm);
+}
+.whatsapp-btn:hover{background:#1ebe5d;box-shadow:var(--shadow-md);transform:translateY(-1px);text-decoration:none}
 .join-btn{
   display:inline-flex;align-items:center;gap:7px;
   padding:9px 18px;
