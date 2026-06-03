@@ -57,10 +57,10 @@
   function photoUrl(p) {
     // 1. Manual photo URL stored in data (highest priority)
     if (p.photo) return p.photo;
-    // 2. LinkedIn → unavatar.io with fallback=false so onerror fires when no photo found
+    // 2. LinkedIn → unavatar.io (returns real photo when available)
     if (p.linkedin) {
       const m = p.linkedin.match(/linkedin\.com\/in\/([^/?#]+)/);
-      if (m) return `https://unavatar.io/linkedin/${m[1]}?fallback=false`;
+      if (m) return `https://unavatar.io/linkedin/${m[1]}`;
     }
     return null;
   }
