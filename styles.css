@@ -205,6 +205,15 @@ a{color:inherit;text-decoration:none}
 }
 .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--border-hover)}
 .card.expanded{border-color:var(--border-hover);box-shadow:var(--shadow-lg)}
+.card.founder{border-color:#f0c040;box-shadow:0 0 0 1px #f0c04033,var(--shadow-sm)}
+.card.founder:hover{border-color:#e6b000;box-shadow:0 0 0 1px #f0c04055,var(--shadow-md)}
+.founder-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:10.5px;font-weight:600;
+  color:#92610a;letter-spacing:.02em;
+  opacity:.85;
+}
+.founder-badge svg{width:11px;height:11px;fill:#c8860a;flex:0 0 auto}
 
 /* Avatar + name row */
 .card-main{display:flex;gap:14px;align-items:flex-start}

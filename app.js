@@ -110,8 +110,12 @@
         : '';
       const isExpanded = p.slug === expandedSlug;
 
+      const founderBadge = p.founder
+        ? `<span class="founder-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Impulsor</span>`
+        : '';
+
       return `
-        <article class="card${isExpanded ? ' expanded' : ''}" data-slug="${esc(p.slug)}" tabindex="0" role="button" aria-expanded="${isExpanded}">
+        <article class="card${isExpanded ? ' expanded' : ''}${p.founder ? ' founder' : ''}" data-slug="${esc(p.slug)}" tabindex="0" role="button" aria-expanded="${isExpanded}">
           <div class="card-main">
             <div class="avatar-wrap" style="background:${bg}">
               <span class="avatar-initials">${ini}</span>
@@ -124,7 +128,10 @@
             </div>
           </div>
           <div class="card-foot">
-            <span class="badge ${badgeClass(p.group)}">${esc(p.group)}</span>
+            <div style="display:flex;align-items:center;gap:7px">
+              <span class="badge ${badgeClass(p.group)}">${esc(p.group)}</span>
+              ${founderBadge}
+            </div>
             <div class="card-foot-right">
               ${p.linkedin ? `<a class="li-link" href="${esc(p.linkedin)}" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>` : ''}
               <button class="arrow-btn" aria-label="Ver ficha">
