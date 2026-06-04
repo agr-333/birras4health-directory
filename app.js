@@ -208,6 +208,12 @@
     });
   });
 
+  // Update info modal
+  const updateModal = document.getElementById('updateModal');
+  document.getElementById('updateInfoBtn')?.addEventListener('click', () => updateModal.classList.add('open'));
+  document.getElementById('updateModalClose')?.addEventListener('click', () => updateModal.classList.remove('open'));
+  updateModal?.addEventListener('click', e => { if (e.target === updateModal) updateModal.classList.remove('open'); });
+
   els.searchInput.addEventListener('input', () => { expandedSlug = null; render(); });
   els.sort.addEventListener('change', () => { expandedSlug = null; render(); });
 
