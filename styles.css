@@ -444,6 +444,22 @@ a{color:inherit;text-decoration:none}
   text-align:left;
 }
 
+/* ── Video ──────────────────────────────────────── */
+.video-wrap {
+  max-width: 780px;
+  margin: 0 auto 32px;
+  padding: 0 16px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.video-wrap iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--r-lg);
+  display: block;
+  box-shadow: var(--shadow-md);
+}
+
 /* ── WhatsApp FAB ───────────────────────────────── */
 .wa-fab {
   position: fixed;
