@@ -484,6 +484,49 @@ a{color:inherit;text-decoration:none}
 .wa-fab:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.22); }
 @media(max-width:540px){ .wa-fab span { display: none; } .wa-fab { padding: 14px; } }
 
+/* ── Eventos ─────────────────────────────────────── */
+.events-section {
+  max-width: 900px;
+  margin: 48px auto 0;
+  padding: 0 16px;
+}
+.events-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.events-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+.propose-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--text);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--pill);
+  transition: opacity .15s;
+}
+.propose-btn:hover { opacity: .8; }
+.calendar-wrap {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.calendar-wrap iframe {
+  width: 100%;
+  height: 520px;
+  display: block;
+}
+@media(max-width:540px){ .calendar-wrap iframe { height: 400px; } }
+
 /* ── Responsive ─────────────────────────────────── */
 @media(max-width:1200px){.cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:860px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
