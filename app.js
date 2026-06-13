@@ -196,6 +196,8 @@
     const list = filtered();
     const total = people.length;
     els.count.innerHTML = `<strong>${list.length}</strong> de ${total} miembros`;
+    const footerCount = document.getElementById('footerCount');
+    if (footerCount) footerCount.textContent = total;
     renderCards(list);
   }
 
