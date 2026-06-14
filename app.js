@@ -223,6 +223,14 @@
   document.getElementById('updateModalClose')?.addEventListener('click', () => updateModal.classList.remove('open'));
   updateModal?.addEventListener('click', e => { if (e.target === updateModal) updateModal.classList.remove('open'); });
 
+  // LettuceMeet modal
+  const lettucemeetModal = document.getElementById('lettucemeetModal');
+  document.getElementById('lettucemeetBtn')?.addEventListener('click', () => lettucemeetModal.classList.add('open'));
+  document.getElementById('lettucemeetModalClose')?.addEventListener('click', () => lettucemeetModal.classList.remove('open'));
+  document.getElementById('lettucemeetCancel')?.addEventListener('click', () => lettucemeetModal.classList.remove('open'));
+  document.getElementById('lettucemeetGo')?.addEventListener('click', () => lettucemeetModal.classList.remove('open'));
+  lettucemeetModal?.addEventListener('click', e => { if (e.target === lettucemeetModal) lettucemeetModal.classList.remove('open'); });
+
   els.searchInput.addEventListener('input', () => { expandedSlug = null; render(); });
   els.sort.addEventListener('change', () => { expandedSlug = null; render(); });
 
