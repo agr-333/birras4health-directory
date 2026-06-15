@@ -535,6 +535,12 @@ a{color:inherit;text-decoration:none}
   transition: opacity .15s;
 }
 .coordinate-btn:hover { opacity: .7; }
+.disclaimer-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
 .modal-box-footer {
   display: flex;
   justify-content: flex-end;
