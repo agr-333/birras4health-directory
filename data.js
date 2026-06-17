@@ -200,7 +200,8 @@ window.BIRRAS4HEALTH_DATA = {
       "note": "Acceso directo a innovación hospitalaria.",
       "slug": "daniel-sanchez-puerto",
       "group": "Clínica",
-      "founder": true
+      "founder": true,
+      "email": "gestion.innovacion@iisgm.com"
     },
     {
       "name": "Egemen Tavsanci",
