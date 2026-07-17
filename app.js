@@ -223,13 +223,64 @@
   document.getElementById('updateModalClose')?.addEventListener('click', () => updateModal.classList.remove('open'));
   updateModal?.addEventListener('click', e => { if (e.target === updateModal) updateModal.classList.remove('open'); });
 
-  // LettuceMeet modal
-  const lettucemeetModal = document.getElementById('lettucemeetModal');
-  document.getElementById('lettucemeetBtn')?.addEventListener('click', () => lettucemeetModal.classList.add('open'));
-  document.getElementById('lettucemeetModalClose')?.addEventListener('click', () => lettucemeetModal.classList.remove('open'));
-  document.getElementById('lettucemeetCancel')?.addEventListener('click', () => lettucemeetModal.classList.remove('open'));
-  document.getElementById('lettucemeetGo')?.addEventListener('click', () => lettucemeetModal.classList.remove('open'));
-  lettucemeetModal?.addEventListener('click', e => { if (e.target === lettucemeetModal) lettucemeetModal.classList.remove('open'); });
+  // ── Tablón de anuncios ───────────────────────────
+  const BADGE_CLASS = {
+    'Evento':  'badge-evento',
+    'Premio':  'badge-premio',
+    'Curso':   'badge-curso',
+    'Oferta':  'badge-oferta',
+    'Noticia': 'badge-noticia',
+  };
+
+  function isExpired(a) {
+    if (!a.date) return false;
+    const d = new Date(a.date);
+    d.setDate(d.getDate() + 2);
+    return new Date() > d;
+  }
+
+  function formatDate(iso) {
+    if (!iso) return '';
+    const d = new Date(iso + 'T00:00:00');
+    return d.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  function renderBoard() {
+    const list = document.getElementById('boardList');
+    if (!list) return;
+    const announcements = (window.BIRRAS4HEALTH_ANNOUNCEMENTS || []).filter(a => !isExpired(a));
+    if (!announcements.length) {
+      list.innerHTML = '<div class="board-empty">Aún no hay anuncios. ¡Sé el primero en publicar!</div>';
+      return;
+    }
+    list.innerHTML = announcements.map(a => {
+      const badgeCls = BADGE_CLASS[a.type] || 'badge-noticia';
+      const imgHtml = a.image ? `<img class="announce-image" src="${esc(a.image)}" alt="" loading="lazy" onerror="this.remove()">` : '';
+      const dateHtml = a.date ? `<span class="announce-date-chip">📅 ${formatDate(a.date)}</span>` : '';
+      const descHtml = a.description ? `<p class="announce-desc">${esc(a.description)}</p>` : '';
+      const linkHtml = a.url
+        ? `<a class="announce-link" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver más
+          </a>`
+        : '';
+      return `<article class="announce-card">
+        ${imgHtml}
+        <div class="announce-body">
+          <div class="announce-meta">
+            <span class="announce-badge ${badgeCls}">${esc(a.type)}</span>
+            ${dateHtml}
+            <span class="announce-author">${esc(a.author)}</span>
+          </div>
+          <h3 class="announce-title">${esc(a.title)}</h3>
+          ${descHtml}
+          ${linkHtml}
+        </div>
+      </article>`;
+    }).join('');
+  }
+
+  renderBoard();
 
   els.searchInput.addEventListener('input', () => { expandedSlug = null; render(); });
   els.sort.addEventListener('change', () => { expandedSlug = null; render(); });

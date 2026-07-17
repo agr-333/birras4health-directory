@@ -61,23 +61,15 @@
 
     <div id="cards" class="cards"></div>
 
-    <section class="events-section">
-      <div class="events-header">
-        <h2 class="events-title">Calendario de eventos</h2>
-        <div class="events-actions">
-          <a class="propose-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScM3lmRb7ciT-IsXuuS4kVxbYnqaVI5Ksuz4yFMR7Yekh1dcw/viewform" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            Proponer evento
-          </a>
-          <button class="coordinate-btn" id="lettucemeetBtn">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Coordinar fecha
-          </button>
-        </div>
+    <section class="board-section">
+      <div class="board-header">
+        <h2 class="board-title">Tablón de anuncios</h2>
+        <a class="board-post-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeEw0QI7V8fYeNYRY7e_wAOb7D8DbeIfCzmITM0OYi8Aa9Zzg/viewform" target="_blank" rel="noopener" id="boardPostBtn">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Publicar anuncio
+        </a>
       </div>
-      <div class="calendar-wrap">
-        <iframe src="https://calendar.google.com/calendar/embed?src=7ad9b36d40515fef5f74fa63431ff4f0cd431d4868edecc3c6b66c5a3eee71f0%40group.calendar.google.com&ctz=Europe%2FMadrid" style="border:0" frameborder="0" scrolling="no"></iframe>
-      </div>
+      <div id="boardList" class="announce-list"></div>
     </section>
 
     <footer class="footer">
@@ -109,26 +101,6 @@
       </div>
     </div>
 
-    <div class="modal-overlay" id="lettucemeetModal">
-      <div class="modal-box">
-        <div class="modal-box-head">
-          <h3>Coordinar fecha con LettuceMeet</h3>
-          <button class="modal-close" id="lettucemeetModalClose">✕</button>
-        </div>
-        <div class="modal-box-body">
-          <ol>
-            <li>Crea una consulta en LettuceMeet y comparte el enlace en el grupo de WhatsApp.</li>
-            <li>Los miembros votan su disponibilidad.</li>
-            <li>Cuando tengas la fecha, usa el botón <strong>"Proponer evento"</strong> para añadirlo al calendario.</li>
-          </ol>
-        </div>
-        <div class="modal-box-footer">
-          <button class="modal-cancel" id="lettucemeetCancel">Cancelar</button>
-          <a class="modal-confirm" href="https://lettucemeet.com" target="_blank" rel="noopener" id="lettucemeetGo">Ir a LettuceMeet →</a>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <a class="wa-fab" href="https://chat.whatsapp.com/CfAOtaiLhneELAoKhNPeke" target="_blank" rel="noopener" aria-label="Unirse al grupo de WhatsApp">
@@ -137,6 +109,7 @@
   </a>
 
   <script src="data.js?v=62d2ca6"></script>
+  <script src="announcements.js?v=62d2ca6"></script>
   <script src="app.js?v=62d2ca6"></script>
 </body>
 </html>
